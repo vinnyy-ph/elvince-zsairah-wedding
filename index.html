@@ -334,32 +334,18 @@
         document.addEventListener('DOMContentLoaded', function() {
             const preloader = document.querySelector('.preloader');
             
-            // GSAP Timeline for preloader animation
-            const preloaderTl = gsap.timeline();
-            
-            // Heart animations
-            preloaderTl
-                .from('.heart-left', { scale: 0, x: -20, opacity: 0, duration: 1, ease: "elastic.out(1, 0.3)" })
-                .from('.heart-right', { scale: 0, x: 20, opacity: 0, duration: 1, ease: "elastic.out(1, 0.3)" }, "-=0.5")
-                .from('.ring', { scale: 0, opacity: 0, stagger: 0.2, duration: 0.8, ease: "back.out(1.7)" }, "-=0.5")
-                .from('.name-left', { x: -30, opacity: 0, duration: 0.8, ease: "power2.out" }, "-=0.3")
-                .from('.name-right', { x: 30, opacity: 0, duration: 0.8, ease: "power2.out" }, "-=0.8")
-                .from('.ampersand', { y: -20, opacity: 0, scale: 0, duration: 1, ease: "elastic.out(1, 0.3)" }, "-=0.6")
-                .from('.loading-text', { y: 20, opacity: 0, duration: 0.8, ease: "power2.out" }, "-=0.3");
-            
-            // Hide preloader when content is ready
-            window.addEventListener('load', function() {
-                setTimeout(function() {
-                    gsap.to(preloader, { opacity: 0, duration: 0.8, onComplete: function() {
-                        preloader.style.display = 'none';
-                    }});
-                }, 1000);
+            // Show all preloader elements immediately
+            gsap.set(['.heart-left', '.heart-right', '.ring', '.name-left', '.name-right', '.ampersand', '.loading-text'], {
+                opacity: 1,
+                scale: 1,
+                x: 0,
+                y: 0
             });
             
             // Pulse animation for hearts
             gsap.to(['.heart-left', '.heart-right'], {
                 scale: 1.1,
-                duration: 0.8,
+                duration: 1.2,
                 repeat: -1,
                 yoyo: true,
                 ease: "power1.inOut"
@@ -378,6 +364,20 @@
                 duration: 8,
                 repeat: -1,
                 ease: "none"
+            });
+            
+            // Hide preloader after a fixed delay
+            window.addEventListener('load', function() {
+                // Keep preloader visible for a long time
+                setTimeout(function() {
+                    gsap.to(preloader, { 
+                        opacity: 0, 
+                        duration: 1.5, 
+                        onComplete: function() {
+                            preloader.style.display = 'none';
+                        }
+                    });
+                }, 8000); // Much longer delay (8 seconds)
             });
         });
 
