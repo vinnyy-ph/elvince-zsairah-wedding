@@ -1,0 +1,209 @@
+:root {
+  --gold: #d4af37;
+  --light-gold: #e9d498;
+  --dark-gold: #b8860b;
+  --silver: #c0c0c0;
+  --light-silver: #e6e6e6;
+  --dark-silver: #8c8c8c;
+  --beige: #f5f5dc;
+  --light-beige: #faf0e6;
+  --dark-beige: #e8e0d0;
+  --text-dark: #4a4a4a;
+  --text-light: #ffffff;
+}
+
+/* Body and general styling */
+body {
+  background-color: var(--light-beige);
+  color: var(--text-dark);
+}
+
+/* Typography enhancements */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--dark-gold);
+}
+
+/* Section titles */
+.section-title h2 {
+  color: var(--dark-gold);
+}
+
+.section-title .section-title-img img {
+  filter: sepia(20%) saturate(150%);
+}
+
+/* Hero section */
+.hero-style-2 .couple-text h2 {
+  color: var(--gold);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.hero-style-2 .couple-text p {
+  color: var(--dark-silver);
+}
+
+.wedding-announcement {
+  background: linear-gradient(to right, rgba(245, 245, 220, 0.8), rgba(192, 192, 192, 0.8), rgba(245, 245, 220, 0.8));
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Countdown styling */
+.wedding-time {
+  background-color: var(--dark-beige);
+}
+
+.clock-grids .box {
+  background: var(--light-silver);
+  border: 1px solid var(--gold);
+}
+
+.clock-grids .box h3 {
+  color: var(--gold);
+}
+
+/* Story section */
+.story-section {
+  background-color: var(--light-beige);
+}
+
+.story-item {
+  background: linear-gradient(to bottom right, var(--light-silver), var(--light-beige));
+  border: 1px solid var(--light-gold);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.story-year {
+  color: var(--gold);
+  font-weight: bold;
+}
+
+.story-text h3 {
+  color: var(--dark-gold);
+}
+
+.story-scroll-arrow {
+  background-color: var(--gold);
+  color: var(--text-light);
+}
+
+.story-scroll-arrow:hover {
+  background-color: var(--dark-gold);
+}
+
+/* Program section */
+.program-section {
+  background: linear-gradient(to right, var(--light-beige), var(--beige), var(--light-beige));
+}
+
+.program-item {
+  border: 1px solid var(--light-gold);
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.program-item:hover {
+  border-color: var(--gold);
+}
+
+.program-item .time {
+  color: var(--gold);
+}
+
+.program-item .time i,
+.program-item .location i {
+  color: var(--gold);
+}
+
+.program-item h3 {
+  color: var(--dark-gold);
+}
+
+.program-item .location {
+  color: var(--dark-gold);
+}
+
+.program-item::before,
+.program-item::after {
+  background: var(--gold) !important;
+}
+
+/* RSVP Section */
+.rsvp-cta {
+  background: linear-gradient(to right, var(--dark-beige), var(--beige), var(--dark-beige));
+}
+
+.rsvp-cta-content h3 {
+  color: var(--dark-gold);
+}
+
+.rsvp-button {
+  background-color: var(--gold);
+  color: var(--text-light);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: inline-block;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.rsvp-button:hover {
+  background-color: var(--dark-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.rsvp-button i {
+  margin-left: 8px;
+  color: var(--light-beige);
+}
+
+.rsvp-deadline {
+  color: var(--dark-silver);
+  font-style: italic;
+  margin-top: 15px;
+}
+
+/* FAQ Section */
+.faq-section {
+  background-color: var(--light-beige);
+}
+
+.faq-item {
+  border: 1px solid var(--light-gold);
+  background: white;
+}
+
+.faq-question {
+  color: var(--dark-gold);
+}
+
+.faq-question:after {
+  color: var(--gold);
+}
+
+.faq-item.active {
+  border-color: var(--gold);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.faq-item.active .faq-question {
+  color: var(--gold);
+}
+
+/* Responsive design */
+@media (max-width: 767px) {
+  .rsvp-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .program-item, 
+  .faq-item, 
+  .story-item {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+} 
