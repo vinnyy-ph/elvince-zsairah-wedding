@@ -382,6 +382,7 @@
     background: #fff;
     overflow: hidden;
     position: relative;
+    z-index: -999;
 }
 
 .story-timeline-wrapper {

@@ -26,6 +26,63 @@
     <link href="assets/css/odometer-theme-default.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-new.css" rel="stylesheet">
+    <style>
+        .directions {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        .directions h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+        .directions ol {
+            padding-left: 25px;
+        }
+        .directions li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        .directions .note {
+            font-style: italic;
+            margin-top: 15px;
+            color: #666;
+        }
+        .directions a {
+            color: #007bff;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        
+        /* Color Palette Styling */
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .color-item {
+            text-align: center;
+            width: 120px;
+        }
+        .color-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        .color-item p {
+            margin: 5px 0 0;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+    </style>
 </head>
 
 <body>
@@ -295,41 +352,61 @@
                         <div class="faq-question">Is the ceremony and reception in the same place ?</div>
                         <div class="faq-answer">
                             <p>Yes, the ceremony and reception will be held at Flor's Garden Antipolo.</p>
-                            <p>
-                                Directions to Flors Garden
-                                Start on Marcos Highway: Begin your journey on Marcos Highway, heading toward Rizal.
-                                Drive Straight: Continue straight along Marcos Highway until you reach Boso-Boso Highlands. Look for signs pointing to various attractions in the area.
-                                Locate the Prayer Mountain Sign: As you approach Boso-Boso Highlands, watch for the sign indicating Prayer Mountain.
-                                Turn Right: Upon spotting the Prayer Mountain sign, make a right turn.
-                                Follow the Road: Proceed along the road after turning right. Signs will guide you to Flors Garden.
-                                It’s advisable to check traffic updates on your chosen navigation app before heading out to avoid any delays.
-
-                                Alternatively, click this WAZE link to find us or scan this Waze QR Code.
-                            </p>
+                            <div class="directions">
+                                <h4>Directions to Flors Garden</h4>
+                                <ol>
+                                    <li><strong>Start on Marcos Highway:</strong> Begin your journey on Marcos Highway, heading toward Rizal.</li>
+                                    <li><strong>Drive Straight:</strong> Continue straight along Marcos Highway until you reach Boso-Boso Highlands. Look for signs pointing to various attractions in the area.</li>
+                                    <li><strong>Locate the Prayer Mountain Sign:</strong> As you approach Boso-Boso Highlands, watch for the sign indicating Prayer Mountain.</li>
+                                    <li><strong>Turn Right:</strong> Upon spotting the Prayer Mountain sign, make a right turn.</li>
+                                    <li><strong>Follow the Road:</strong> Proceed along the road after turning right. Signs will guide you to Flors Garden.</li>
+                                </ol>
+                                <p class="note">It's advisable to check traffic updates on your chosen navigation app before heading out to avoid any delays.</p>
+                                <p>Alternatively, click this <a href="https://www.waze.com/en/live-map/directions/ph/calabarzon/antipolo/flors-garden?to=place.ChIJoQtr9ky-lzMRQZvGddGIa8g" target="_blank" rel="noopener">WAZE link</a> or <a href="https://maps.app.goo.gl/eBn9WUmq7t2ddids6" target="_blank" rel="noopener">google maps link</a> to find us.</p>
+                            </div>
                         </div>
                     </div>
                     <div class="faq-item wow fadeInUp" data-wow-duration="1400ms">
                         <div class="faq-question">Is there a parking space provided ?</div>
                         <div class="faq-answer">
-                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est.</p>
+                            <p>Yes, free parking is available for all guests. We encourage our wedding guests to be at the venue 30 mins before the ceremony time.</p>
                         </div>
                     </div>
                     <div class="faq-item wow fadeInUp" data-wow-duration="1000ms">
                         <div class="faq-question">What should I wear ?</div>
                         <div class="faq-answer">
-                            <p>What should I wear?</p>
+                            <p>We kindly request that our guests adhere to the wedding's color palette when selecting their attire. Our color scheme centers around luxurious neutrals such as Gold, Champagne, Beige, Apricot and Khaki. 
+                                We encourage you to wear colors in this beautiful, soft range to enhance the overall aesthetic of our celebration. Please don't wear other colors especially black.</p>
+                            <div class="color-palette">
+                                <div class="color-item">
+                                    <div class="color-circle" style="background-color: #F7E7CE;"></div>
+                                    <p>CHAMPAGNE</p>
+                                </div>
+                                <div class="color-item">
+                                    <div class="color-circle" style="background-color: #DBC49A;"></div>
+                                    <p>GOLD BEIGE</p>
+                                </div>
+                                <div class="color-item">
+                                    <div class="color-circle" style="background-color: #C3B091;"></div>
+                                    <p>KHAKI</p>
+                                </div>
+                                <div class="color-item">
+                                    <div class="color-circle" style="background-color: #E7C5A5;"></div>
+                                    <p>APRICOT</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="faq-item wow fadeInUp" data-wow-duration="1600ms">
                         <div class="faq-question">Can I take photos during the ceremony ?</div>
                         <div class="faq-answer">
-                            <p>We kindly ask that the ceremony remain unplugged. Our photographers and videographers have everything covered, and we want you—our dearest friends and family—to relax, be present, and enjoy this time with us through your eyes. Once the reception begins, please feel free to take as many photos as you like!</p>
+                            <p>No Phones, Please! We kindly ask that the ceremony remain unplugged. Our photographers and videographers have everything covered, and we want you—our dearest friends and family—to relax, be present, and enjoy this time with us through your eyes. Once the reception begins, please feel free to take as many photos as you like!</p>
                         </div>
                     </div>
                     <div class="faq-item wow fadeInUp" data-wow-duration="1800ms">
                         <div class="faq-question">What to do I do if I'm late to the ceremony ?</div>
                         <div class="faq-answer">
-                            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus.</p>
+                            <p>If you are late to the ceremony, please do not walk down the aisle and try to find a seat. While we want everyone to be there, we would appreciate if you ask assistance from our coordinator or wait to join us until the ceremony ends.</p>
                         </div>
                     </div>
                     <div class="faq-item wow fadeInUp" data-wow-duration="1800ms">
