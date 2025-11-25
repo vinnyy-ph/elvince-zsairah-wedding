@@ -57,6 +57,13 @@
             touch-action: pan-y;
         }
         
+        /* Hide specific slides on mobile (tablets and below) */
+        @media (max-width: 991px) {
+            .swiper-slide.hide-on-mobile {
+                display: none !important;
+            }
+        }
+        
         .directions {
             background-color: #f9f9f9;
             padding: 20px;
@@ -157,7 +164,7 @@
                 </div>
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
+                        <div class="swiper-slide hide-on-mobile">
                             <div class="slide-inner slide-bg-image" data-background="assets/images/hero-images/1.png">
                             </div> <!-- end slide-inner -->
                         </div> <!-- end swiper-slide -->
@@ -167,12 +174,12 @@
                             </div> <!-- end slide-inner -->
                         </div> <!-- end swiper-slide -->
 
-                        <div class="swiper-slide">
+                        <div class="swiper-slide hide-on-mobile">
                             <div class="slide-inner slide-bg-image" data-background="assets/images/hero-images/4.png">
                             </div> <!-- end slide-inner -->
                         </div> <!-- end swiper-slide -->
 
-                        <div class="swiper-slide">
+                        <div class="swiper-slide hide-on-mobile">
                             <div class="slide-inner slide-bg-image" data-background="assets/images/hero-images/5.png">
                             </div> <!-- end slide-inner -->
                         </div> <!-- end swiper-slide -->
