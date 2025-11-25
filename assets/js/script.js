@@ -827,8 +827,11 @@
             var dateAfterMonths = new Date(today.getFullYear(), today.getMonth() + months, today.getDate(), today.getHours(), today.getMinutes(), today.getSeconds());
             var remainingDays = Math.floor((weddingDate - dateAfterMonths) / (1000 * 60 * 60 * 24));
             
+            // Pluralize month label
+            var monthLabel = months === 1 ? 'Month' : 'Months';
+            
             var $this = $(this).html(''
-            + '<div class="box"><div><div class="time">' + months + '</div> <span>Month</span> </div></div>'
+            + '<div class="box"><div><div class="time">' + months + '</div> <span>' + monthLabel + '</span> </div></div>'
             + '<div class="box"><div><div class="time">' + remainingDays + '</div> <span>Days</span> </div></div>'
             + '<div class="box"><div><div class="time">' + event.strftime('%H') + '</div> <span>Hours</span> </div></div>'
             + '<div class="box"><div><div class="time">' + event.strftime('%M') + '</div> <span>Mins</span> </div></div>'
