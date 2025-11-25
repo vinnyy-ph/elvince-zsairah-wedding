@@ -798,7 +798,7 @@
         = COUNTDOWN CLOCK
     -------------------------------------------*/
     if ($("#clock").length) {
-        $('#clock').countdown('2026/02/04', function(event) {
+        $('#clock').countdown('2026-02-04', function(event) {
             var $this = $(this).html(event.strftime(''
             + '<div class="box"><div><div class="time">%D</div> <span>Days</span> </div></div>'
             + '<div class="box"><div><div class="time">%H</div> <span>Hours</span> </div></div>'
@@ -810,13 +810,29 @@
         = COUNTDOWN CLOCK2
     -------------------------------------------*/
     if ($("#clock2").length) {
-        $('#clock2').countdown('2026/02/04', function(event) {
-            var $this = $(this).html(event.strftime(''
-            + '<div class="box"><div><div class="time">%m</div> <span>Month</span> </div></div>'
-            + '<div class="box"><div><div class="time">%D</div> <span>Days</span> </div></div>'
-            + '<div class="box"><div><div class="time">%H</div> <span>Hours</span> </div></div>'
-            + '<div class="box"><div><div class="time">%M</div> <span>Mins</span> </div></div>'
-            + '<div class="box"><div><div class="time">%S</div> <span>Secs</span> </div></div>'));
+        var weddingDate = new Date('2026-02-04');
+        $('#clock2').countdown(weddingDate, function(event) {
+            // Calculate remaining months correctly
+            var today = new Date();
+            var months;
+            months = (weddingDate.getFullYear() - today.getFullYear()) * 12;
+            months -= today.getMonth() + 1;
+            months += weddingDate.getMonth() + 1;
+            // Adjust for day of month
+            if(today.getDate() > weddingDate.getDate()) {
+                months--;
+            }
+            
+            // Calculate remaining days after months are subtracted
+            var dateAfterMonths = new Date(today.getFullYear(), today.getMonth() + months, today.getDate(), today.getHours(), today.getMinutes(), today.getSeconds());
+            var remainingDays = Math.floor((weddingDate - dateAfterMonths) / (1000 * 60 * 60 * 24));
+            
+            var $this = $(this).html(''
+            + '<div class="box"><div><div class="time">' + months + '</div> <span>Month</span> </div></div>'
+            + '<div class="box"><div><div class="time">' + remainingDays + '</div> <span>Days</span> </div></div>'
+            + '<div class="box"><div><div class="time">' + event.strftime('%H') + '</div> <span>Hours</span> </div></div>'
+            + '<div class="box"><div><div class="time">' + event.strftime('%M') + '</div> <span>Mins</span> </div></div>'
+            + '<div class="box"><div><div class="time">' + event.strftime('%S') + '</div> <span>Secs</span> </div></div>');
         });
     }
 
