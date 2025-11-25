@@ -42,6 +42,21 @@
             width: 100% !important;
         }
         
+        /* Allow touch/swipe on mobile by making announcement overlay pass-through */
+        .wedding-announcement {
+            pointer-events: none;
+        }
+        
+        /* Re-enable pointer events for any interactive elements inside */
+        .wedding-announcement * {
+            pointer-events: auto;
+        }
+        
+        /* Ensure swiper container is touchable */
+        .swiper-container {
+            touch-action: pan-y;
+        }
+        
         .directions {
             background-color: #f9f9f9;
             padding: 20px;

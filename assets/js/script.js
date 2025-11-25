@@ -220,6 +220,13 @@
             prevEl: '.swiper-button-prev',
         },
 
+        // Enable touch/swipe on mobile
+        simulateTouch: true,
+        allowTouchMove: true,
+        touchRatio: 1,
+        touchAngle: 45,
+        grabCursor: true,
+
         on: {
             progress: function() {
                 var swiper = this;
