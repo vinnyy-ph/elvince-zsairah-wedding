@@ -392,9 +392,17 @@
     padding: 40px 20px;
 }
 
-/* Center line - Hidden for Desktop (> 768px) */
+/* Center line */
 .vertical-timeline::before {
-    display: none;
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, transparent, #dec79b 5%, #dec79b 95%, transparent);
+    transform: translateX(-50%);
+    z-index: 1;
 }
 
 .timeline-item {
@@ -404,58 +412,64 @@
     align-items: flex-start;
 }
 
-/* Timeline marker - Hidden for Desktop */
+/* Timeline marker (dot on center line) */
 .timeline-marker {
-    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    top: 40px;
+}
+
+.timeline-dot {
+    width: 20px;
+    height: 20px;
+    background: #dec79b;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(222, 199, 155, 0.2);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 6px rgba(222, 199, 155, 0.3);
 }
 
 /* Content positioning */
 .timeline-content {
     width: 50%;
-    padding: 15px;
+    padding: 0 40px;
 }
 
 /* Left side items */
 .timeline-item.left .timeline-content {
-    padding-right: 15px;
+    text-align: right;
+    padding-right: 60px;
 }
 
 /* Right side items */
 .timeline-item.right .timeline-content {
     margin-left: 50%;
-    padding-left: 15px;
+    text-align: left;
+    padding-left: 60px;
 }
 
-/* Timeline year badge - Absolute for Desktop */
+/* Timeline year badge */
 .timeline-year {
     display: inline-block;
     background: #dec79b;
     color: #fff;
     padding: 6px 18px;
+    border-radius: 25px;
     font-size: 14px;
     font-weight: 600;
+    margin-bottom: 15px;
     box-shadow: 0 2px 8px rgba(222, 199, 155, 0.3);
     font-family: "Gilda Display", serif;
-    position: absolute;
-    top: 0;
-    z-index: 10;
 }
 
-/* Left Item: Image Left -> Pill Top-Left */
-.timeline-item.left .timeline-year {
-    left: 0;
-    right: auto;
-    border-radius: 0 0 12px 0;
-}
-
-/* Right Item: Image Right -> Pill Top-Right */
-.timeline-item.right .timeline-year {
-    right: 0;
-    left: auto;
-    border-radius: 0 0 0 12px;
-}
-
-/* Timeline card - Flex & Fixed Height for Desktop */
+/* Timeline card */
 .timeline-card {
     background: #fff;
     border-radius: 12px;
@@ -463,9 +477,6 @@
     overflow: hidden;
     border: 1px solid #f5f1ea;
     transition: all 0.3s ease;
-    display: flex;
-    height: 350px;
-    position: relative;
 }
 
 .timeline-card:hover {
@@ -473,18 +484,9 @@
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
-/* Alternating Layout */
-.timeline-item.left .timeline-card {
-    flex-direction: row;
-}
-
-.timeline-item.right .timeline-card {
-    flex-direction: row-reverse;
-}
-
 .timeline-image {
-    width: 50%;
-    height: 100%;
+    width: 100%;
+    height: 250px;
     overflow: hidden;
     position: relative;
 }
@@ -501,23 +503,7 @@
 }
 
 .timeline-text {
-    width: 50%;
-    height: 100%;
     padding: 25px;
-    overflow-y: auto;
-    text-align: left;
-}
-
-/* Scrollbar styling */
-.timeline-text::-webkit-scrollbar {
-    width: 6px;
-}
-.timeline-text::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-}
-.timeline-text::-webkit-scrollbar-thumb {
-    background: #dec79b; 
-    border-radius: 3px;
 }
 
 .timeline-text h3 {
@@ -526,7 +512,6 @@
     color: #002642;
     margin-bottom: 15px;
     line-height: 1.3;
-    margin-top: 0;
 }
 
 .timeline-text p {
@@ -540,7 +525,7 @@
     margin-bottom: 0;
 }
 
-/* Tablet Responsive (769px - 991px) */
+/* Tablet Responsive */
 @media (max-width: 991px) {
     .story-section {
         padding: 70px 0;
@@ -550,20 +535,32 @@
         padding: 30px 15px;
     }
     
-    .timeline-card {
-        height: 300px;
+    .timeline-content {
+        padding: 0 30px;
     }
     
-    .timeline-text {
-        padding: 20px;
+    .timeline-item.left .timeline-content {
+        padding-right: 50px;
+    }
+    
+    .timeline-item.right .timeline-content {
+        padding-left: 50px;
+    }
+    
+    .timeline-image {
+        height: 220px;
     }
     
     .timeline-text h3 {
         font-size: 22px;
     }
+    
+    .timeline-text {
+        padding: 20px;
+    }
 }
 
-/* Mobile Landscape & Portrait (<= 768px) - Restore Stacked */
+/* Mobile Landscape & Portrait */
 @media (max-width: 768px) {
     .story-section {
         padding: 50px 0;
@@ -573,18 +570,10 @@
         padding: 20px 10px;
     }
     
-    /* Restore center line */
+    /* Hide center line on mobile */
     .vertical-timeline::before {
-        display: block;
-        content: '';
-        position: absolute;
         left: 30px;
-        top: 0;
-        bottom: 0;
-        width: 3px;
-        background: linear-gradient(to bottom, transparent, #dec79b 5%, #dec79b 95%, transparent);
         transform: none;
-        z-index: 1;
     }
     
     .timeline-item {
@@ -602,9 +591,8 @@
         margin-left: 0;
     }
     
-    /* Restore marker */
+    /* Move marker to left side */
     .timeline-marker {
-        display: block;
         left: 30px;
         transform: translateX(-50%);
         top: 30px;
@@ -613,48 +601,20 @@
     .timeline-dot {
         width: 16px;
         height: 16px;
-        background: #dec79b;
         border: 3px solid #fff;
-        border-radius: 50%;
-        box-shadow: 0 0 0 4px rgba(222, 199, 155, 0.2);
-        transition: all 0.3s ease;
     }
     
-    .timeline-item:hover .timeline-dot {
-        transform: scale(1.2);
-        box-shadow: 0 0 0 6px rgba(222, 199, 155, 0.3);
-    }
-    
-    /* Reset Year Pill */
     .timeline-year {
-        position: relative;
-        top: auto;
-        left: auto;
-        right: auto;
-        margin-bottom: 15px;
-        display: inline-block;
-        border-radius: 25px;
         font-size: 13px;
         padding: 5px 14px;
     }
     
-    /* Reset Card Layout */
-    .timeline-card {
-        display: block;
-        height: auto;
-        flex-direction: column !important;
-    }
-    
     .timeline-image {
-        width: 100%;
         height: 200px;
     }
     
     .timeline-text {
-        width: 100%;
-        height: auto;
         padding: 18px;
-        overflow-y: visible;
     }
     
     .timeline-text h3 {
